@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>一级分类</title>
+    <title>二级分类</title>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
@@ -27,8 +27,8 @@
                 <li>
                     <a class="cate_mana" href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
                     <div class="cate_menu">
-                        <a class="active" href="first.html" class="first_menu">一级分类</a>
-                        <a href="second.html" class="second_menu">二级分类</a>
+                        <a href="first.html" class="first_menu">一级分类</a>
+                        <a class="active" href="second.html" class="second_menu">二级分类</a>
                     </div>
                 </li>
                 <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
@@ -48,7 +48,7 @@
             <ol class="breadcrumb">
                 <li><a href="index.html">管理系统</a></li>
                 <li class="active">分类管理</li>
-                <li class="active">一级分类</li>
+                <li class="active">二级分类</li>
             </ol>
 
             <button class="btn btn-default mb_20 btn-add">添加分类</button>
@@ -56,15 +56,14 @@
             <table class="table table-bordered text-center table-hover">
                 <thead>
                     <tr>
-                        <th class="text-center" width="20%">序号</th>
-                        <th class="text-center" width="80%">用户名</th>
+                        <th class="text-center" width="10%">序号</th>
+                        <th class="text-center" width="30%">一级分类名称</th>
+                        <th class="text-center" width="30%">二级分类名称</th>
+                        <th class="text-center" width="30%">二级分类LOGO</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>帆布馆</td>
-                    </tr> -->
+
                 </tbody>
             </table>
 
@@ -102,7 +101,7 @@
 
 
     <!-- 添加第一分类模态框 -->
-    <div class="modal fade" tabindex="-1" id="first_modal">
+    <div class="modal fade" tabindex="-1" id="second_modal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -145,13 +144,15 @@
     <script src="./lib/echarts/echarts.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/first.js"></script>
+    <script src="./js/second.js"></script>
 
-    <script type="text/template" id="firstTmp">
+    <script type="text/template" id="secondTmp">
         {{each rows v i}}
         <tr>
-            <td>{{(page-1)*size+ (i+1)}}</td>
+            <td>{{(page-1)*size+(i+1)}}</td>
             <td>{{v.categoryName}}</td>
+            <td>{{v.brandName}}</td>
+            <td><img src="{{v.brandLogo}}" height="50" alt=""></td>
         </tr>
         {{/each}}
     </script>

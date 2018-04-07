@@ -88,9 +88,9 @@ a:active {
 /* 图片自适应 */
 
 img {
-    width: 100%;
+    /* width: 100%; */
     /*解决图片底部对其问题*/
-    display: block;
+    /* display: block; */
     border: none;
 }
 
