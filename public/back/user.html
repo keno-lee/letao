@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首页</title>
+    <title>用户管理</title>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
@@ -23,7 +23,7 @@
         </div>
         <div class="control_cate">
             <ul>
-                <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+                <li><a class="active" href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
                 <li>
                     <a class="cate_mana" href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
                     <div class="cate_menu" style="display:none">
@@ -47,23 +47,45 @@
         <div class="container-fluid">
             <ol class="breadcrumb">
                 <li><a href="index.html">管理系统</a></li>
-                <li class="active">首页</li>
+                <li class="active">用户管理</li>
             </ol>
 
-            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-            <div class="echarts_box">
-                <div class="echarts1 pull-left" id="main" style="width: 48%;height:400px;"></div>
-                <div class="echarts2 pull-right" id="main" style="width: 48%;height:400px;"></div>
-            </div>
+
+            <!-- 表格 -->
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">序号</th>
+                        <th class="text-center">用户名</th>
+                        <th class="text-center">手机号</th>
+                        <th class="text-center">状态</th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>itcast</td>
+                        <td>15102324243</td>
+                        <td>正常</td>
+                        <td>
+                            <button class="btn btn-danger">禁用</button>
+                            <button class="btn btn-success">启用</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+
         </div>
     </div>
+    <!-- lt_content -->
 
 
 
 
 
     <!-- 模态框 -->
-    <div class="modal fade" tabindex="-1" id="exit_modal">
+    <div class="modal fade" tabindex="-1" id="user_modal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -71,11 +93,11 @@
                     <h4 class="modal-title">温馨提示</h4>
                 </div>
                 <div class="modal-body">
-                    <p class="text-danger"><i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
+                    <p class="text-danger"><i class="glyphicon glyphicon-info-sign"></i> 你确定要执行此操作吗？</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary btn-exit">退出</button>
+                    <button type="button" class="btn btn-primary btn-confirm">确定</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -95,8 +117,25 @@
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/user.js"></script>
+
+    <script type="text/template" id="userTmp">
+        {{each rows v i}}
+        <tr data-id="{{v.id}}">
+            <td>{{(page-1)*size+ (i+1)}}</td>
+            <td>{{v.username}}</td>
+            <td>{{v.mobile}}</td>
+            <td>{{v.isDelete == 1? "启用中":"禁用中"}}</td>
+            <td>
+                {{ if v.isDelete === 1 }}
+                <button class="btn btn-danger">禁用</button> {{ else }}
+                <button class="btn btn-success">启用</button> {{ /if }}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
 
 </body>
 

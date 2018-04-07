@@ -73,6 +73,15 @@ body {
     padding-left: 60px;
 }
 
+.control_cate a {
+    border-left: 3px solid transparent;
+}
+
+.control_cate a.active {
+    border-left: 3px solid #006699;
+    background-color: #1D1F21;
+}
+
 
 /* 乐淘顶部栏 */
 
@@ -112,7 +121,7 @@ body {
     padding-top: 50px;
     width: 100%;
     height: 1000px;
-    background-color: pink;
+    /* background-color: pink; */
     transition: all 1s;
 }
 
@@ -125,4 +134,11 @@ body {
 
 .breadcrumb {
     margin-top: 15px;
+}
+
+
+/* 表格 */
+
+.table>tbody>tr>td {
+    vertical-align: middle;
 }
