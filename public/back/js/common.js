@@ -27,6 +27,27 @@ $(function() {
         //说明存在login.html,不执行
     }
 
+    //退出按钮功能
+    $(".icon_exit").on("click", function() {
+        $('#exit_modal').modal();
+    });
+
+    $(".btn-exit").on("click", function() {
+        // alert(1);
+        $.ajax({
+            type: "get",
+            url: "/employee/employeeLogout",
+            dataType: "json",
+            success: function(info) {
+                // console.log(info);
+                if (info.success) {
+                    location.href = "login.html";
+                }
+            }
+        });
+    });
+
+
 
     // 侧边栏隐藏
     $(".cate_mana").on("click", function() {

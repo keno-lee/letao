@@ -1,24 +1,6 @@
 $(function() {
 
-    //退出按钮功能
-    $(".icon_exit").on("click", function() {
-        $('#exit_modal').modal();
-    });
 
-    $(".btn-exit").on("click", function() {
-        // alert(1);
-        $.ajax({
-            type: "get",
-            url: "/employee/employeeLogout",
-            dataType: "json",
-            success: function(info) {
-                // console.log(info);
-                if (info.success) {
-                    location.href = "login.html";
-                }
-            }
-        });
-    });
 
     // 基于准备好的dom，初始化echarts实例
     var echarts1 = echarts.init(document.querySelector('.echarts1'));
