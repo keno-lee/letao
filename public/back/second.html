@@ -100,7 +100,7 @@
 
 
 
-    <!-- 添加第一分类模态框 -->
+    <!-- 添加第二分类模态框 -->
     <div class="modal fade" tabindex="-1" id="second_modal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -109,16 +109,42 @@
                     <h4 class="modal-title">添加分类</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="first-form">
+                    <form id="second-form">
+                        <!-- 下拉菜单功能  一级分类 -->
                         <div class="form-group">
-                            <input type="text" name="categoryName" class="form-control" placeholder="请输入第一分类名">
+                            <div class="dropdown mb_20">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                  请选择一级分类
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <!-- <li><a href="#">Action</a></li> -->
+                                </ul>
+                                <input type="hidden" name="categoryId" id="dropdown-input">
+                            </div>
                         </div>
+                        <!-- 表单功能  二级分类 -->
+                        <div class="form-group">
+                            <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类名">
+                        </div>
+
+                        <!-- 上传图片功能 图片 -->
+                        <div class="form-group">
+                            <label for="file" class="btn btn-default mb_20" style="display:block;">上传图片</label>
+                            <input type="file" name="pic1" id="file" style="display:none" data-url="/category/addSecondCategoryPic">
+                        </div>
+                        <div class="form-group">
+                            <img id="show-img" src="./images/none.png" alt="" width="100">
+                            <input type="hidden" name="brandLogo" id="brandLogo">
+                        </div>
+
+                        <input type="hidden" name="hot" value="1">
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                     <!-- 使用form="id"属性关联form表单 -->
-                    <button type="submit" form="first-form" class="btn btn-primary btn-confirm">添加</button>
+                    <button type="submit" form="second-form" class="btn btn-primary btn-confirm">添加</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -143,6 +169,9 @@
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/echarts/echarts.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
     <script src="./js/common.js"></script>
     <script src="./js/second.js"></script>
 
@@ -157,6 +186,11 @@
         {{/each}}
     </script>
 
+    <script type="text/template" id="firstcateTmp">
+        {{each rows v i}}
+        <li data-categoryid="{{v.id}}"><a href="javascript:;">{{v.categoryName}}</a></li>
+        {{/each}}
+    </script>
 </body>
 
 </html>
