@@ -1,0 +1,60 @@
+.lt_main .mui-table-view img {
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+}
+
+#checkbox {
+    position: absolute;
+    left: 28px;
+    bottom: 10px;
+}
+
+.title {
+    color: #000;
+}
+
+.lt_price {
+    padding-top: 20px;
+}
+
+.price {
+    color: #f00;
+}
+
+.oldPrice {
+    text-decoration: line-through;
+}
+
+.lt_main .mui-table-cell {
+    display: block;
+}
+
+.lt_size span {
+    display: inline-block;
+    padding: 0 3px;
+    border: 1px solid #ccc;
+    margin: 5px 5px 0;
+}
+.lt_size span.active {
+    background-color: #0064B2;
+    color: #fff;
+}
+
+.lt_num {
+    margin-top: 10px;
+}
+
+.lt_order {
+    height: 30px;
+    width: 100%;
+    background-color: #EEEEEE;
+    position: absolute;
+    left: 0;
+    bottom: 55px;
+    z-index: 999;
+    line-height: 30px;
+    padding-left: 10px;
+    color: #f00;
+    font-size: 12px;
+}
