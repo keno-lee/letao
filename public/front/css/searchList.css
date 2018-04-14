@@ -12,7 +12,9 @@
     font-size: 12px;
     color: #666;
 }
-
+.sortItem.active {
+    color: orange;
+}
 .product {
     padding: 10px;
 }
